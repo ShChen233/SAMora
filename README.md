@@ -2,7 +2,7 @@
 
 <b>SAMora: Enhancing SAM through Hierarchical Self-Supervised
 Pre-Training for Medical Images</b> <br/>
-[Shuhang Chen](https://scholar.google.com/citations?user=tt0czd0AAAAJ&hl=zh-CN), [Hangjie Yuan](https://scholar.google.com/citations?user=jQ3bFDMAAAAJ&hl=en), [Yunqiu Xu](https://scholar.google.com/citations?user=SdJX4nAAAAAJ&hl=zh-CN), [Pengwei Liu](https://scholar.google.com/citations?user=mlcLvUEAAAAJ&hl=zh-CN), [Tao Feng], [Zeying Huang], and [Yi Yang](https://scholar.google.com/citations?user=RMSuNFwAAAAJ&hl=en) <br/>
+[Shuhang Chen](https://scholar.google.com/citations?user=tt0czd0AAAAJ&hl=zh-CN), [Hangjie Yuan](https://scholar.google.com/citations?user=jQ3bFDMAAAAJ&hl=en), [Yunqiu Xu](https://scholar.google.com/citations?user=SdJX4nAAAAAJ&hl=zh-CN), [Pengwei Liu](https://scholar.google.com/citations?user=mlcLvUEAAAAJ&hl=zh-CN), Tao Feng, Zeying Huang, and [Yi Yang](https://scholar.google.com/citations?user=RMSuNFwAAAAJ&hl=en) <br/>
 ICCV 2025 <br/>
 ![image](figure/framework.png)
 [paper](https://arxiv.org/abs/2511.08626) | [code](https://github.com/ShChen233/SAMora.)
