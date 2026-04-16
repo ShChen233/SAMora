@@ -1,0 +1,45 @@
+# H-SAMora stage1 patch-level pretraining
+dataset: Synapse
+stage: stage1_patch
+
+# model
+vit_name: vit_b
+module: samora_lora_hsam
+ckpt: checkpoints/sam_vit_b_01ec64.pth
+rank: 4
+use_hl_attn: true
+train_prompt_encoder_in_stage2: false
+
+# data
+img_size: 224
+batch_size: 16
+unlabeled_roots:
+  - /path/to/unlabeled/amos22
+  - /path/to/unlabeled/lits
+  - /path/to/unlabeled/kits
+stage1_num_workers: 4
+stage1_max_samples: null
+
+# training
+max_epochs: 30
+stop_epoch: 30
+base_lr: 0.001
+optimizer: adamw
+warmup: true
+warmup_period: 25
+save_interval: 10
+seed: 1234
+deterministic: true
+output: ./model_out
+
+# mae / patch-level
+patch_size: 16
+mask_ratio: 0.75
+stage1_proj_dim: 256
+stage1_proj_hidden_dim: 2048
+mae_embed_dim: 1024
+mae_depth: 8
+mae_num_heads: 16
+mae_decoder_embed_dim: 512
+mae_decoder_depth: 2
+mae_decoder_num_heads: 8

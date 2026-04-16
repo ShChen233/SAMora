@@ -1,0 +1,39 @@
+# H-SAMora stage1 pixel-level pretraining
+dataset: Synapse
+stage: stage1_pixel
+
+# model
+vit_name: vit_b
+module: samora_lora_hsam
+ckpt: checkpoints/sam_vit_b_01ec64.pth
+rank: 4
+use_hl_attn: true
+train_prompt_encoder_in_stage2: false
+
+# data
+img_size: 224
+batch_size: 16
+unlabeled_roots:
+  - /path/to/unlabeled/amos22
+  - /path/to/unlabeled/lits
+  - /path/to/unlabeled/kits
+stage1_num_workers: 4
+stage1_max_samples: null
+
+# training
+max_epochs: 30
+stop_epoch: 30
+base_lr: 0.001
+optimizer: adamw
+warmup: true
+warmup_period: 25
+save_interval: 10
+seed: 1234
+deterministic: true
+output: ./model_out
+
+# pixel-level
+pixel_decoder_channels: [256, 128, 64, 32, 16]
+pixel_decoder_activation: sigmoid
+pixel_dice_weight: 0.9
+pixel_mse_weight: 0.1

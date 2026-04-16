@@ -1,0 +1,42 @@
+# H-SAMora stage2 supervised finetuning on Synapse
+dataset: Synapse
+stage: stage2
+
+# model
+vit_name: vit_b
+module: samora_lora_hsam
+ckpt: checkpoints/sam_vit_b_01ec64.pth
+rank: 4
+use_hl_attn: true
+train_prompt_encoder_in_stage2: false
+strict_ckpt_loading: false
+
+# pretrained experts from stage1
+image_lora_ckpt: checkpoints/stage1/image_expert_epoch_29.pth
+patch_lora_ckpt: checkpoints/stage1/patch_expert_epoch_29.pth
+pixel_lora_ckpt: checkpoints/stage1/pixel_expert_epoch_29.pth
+
+# H-SAM stage2 data
+root_path: ../data/Synapse/train_npz
+list_dir: ./lists/lists_Synapse
+split: train
+num_classes: 8
+img_size: 224
+low_res: 128
+batch_size: 32
+
+# training
+max_epochs: 30
+stop_epoch: 30
+base_lr: 0.0025
+optimizer: adamw
+warmup: true
+warmup_period: 25
+save_interval: 10
+dice_param: 0.8
+seed: 1234
+deterministic: true
+output: ./model_out
+
+# compatibility
+multimask_output: 1

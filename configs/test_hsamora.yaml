@@ -1,0 +1,46 @@
+# H-SAMora evaluation on Synapse
+dataset: Synapse
+
+# choose dual-decoder H-SAMora path
+variant: hsamora
+module: samora_lora_hsam
+vit_name: hsamora_vit_b
+
+# base SAM checkpoint
+ckpt: checkpoints/sam_vit_b_01ec64.pth
+
+# model
+rank: 4
+use_hl_attn: true
+train_prompt_encoder_in_stage2: false
+strict_ckpt_loading: false
+
+# pretrained stage1 experts
+image_lora_ckpt: checkpoints/stage1/image_expert_epoch_29.pth
+patch_lora_ckpt: checkpoints/stage1/patch_expert_epoch_29.pth
+pixel_lora_ckpt: checkpoints/stage1/pixel_expert_epoch_29.pth
+
+# stage2 hsamora checkpoint
+lora_ckpt: checkpoints/stage2_hsamora/epoch_29.pth
+
+# test data
+root_path: ../data/Synapse/test_vol_h5
+list_dir: ./lists/lists_Synapse
+split: test_vol
+num_classes: 8
+img_size: 224
+z_spacing: 1
+
+# hsamora decoder aggregation
+# 2: use outputs2 only
+# 3: average outputs1 and outputs2
+eval_decoder_stage: 3
+
+# runtime
+deterministic: true
+seed: 1234
+n_gpu: 1
+
+# outputs
+output_dir: ./test_out/hsamora
+is_savenii: false
