@@ -1,4 +1,4 @@
-# SAMora 
+# [ICCV-25] SAMora 
 
 <b>SAMora: Enhancing SAM through Hierarchical Self-Supervised
 Pre-Training for Medical Images</b> <br/>
